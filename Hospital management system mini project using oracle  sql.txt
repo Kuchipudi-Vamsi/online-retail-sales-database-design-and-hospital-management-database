@@ -1,0 +1,218 @@
+
+                            ---  MINI PROJECT FOR SQL
+                                  
+                        --  PROJECT NAME: HOSPITAL MANAGEMENT SYSTEM
+
+
+                        -- CREATEING THE TABLE FOR EMPLOYEE
+                         
+create table employee (
+    empi_id number(5) primary key,
+    empi_name varchar(15),
+    empi_email varchar(15),
+    empi_phone number(10),
+    empi_age number(3),
+    empi_gender varchar(8),
+    empi_position varchar(20),
+    empi_salary number(10),
+    check(empi_age > = 18)
+);
+
+              drop table employee 
+
+insert into employee values(1001, 'arun', 'arun2gmail.com', '47454154', 22, 'male', 'manager', 66700);
+insert into employee values(1002, 'arish', 'arishgmail.com', '9867657772', 25, 'male', 'reception', 60000);
+insert into employee values(1003, 'basha', 'bashagmail.com', '76676787', 27, 'male', 'coordinator', 40000);
+insert into employee values(1004, 'bala', 'balagmail.com', '985355547', 45, 'male', 'pharmacy', 45000);
+insert into employee values (1005, 'devi', 'devi@gmail.com', '8877667675', 35, 'female', 'nurse',35000);
+insert into employee values(1006, 'kannan', 'kanan@gmail.com', '985547863', 26, 'male', 'head doctor', 75000);..
+--insert into employee values(1007, 'ravi', 'ravi@gmail.com', '87896676', 17, 'male', 'doctor', 25000); ----- this is violated
+
+
+
+                              -- CREATEING THE TABLE FOR PATIENT
+                              
+create table patient(
+   pat_id number(5) primary key,
+   pat_name varchar2(15),
+   pat_phone number(10),
+   pat_age number(3),
+   pat_gender varchar(6)
+);
+
+       drop table patient 
+
+     insert into patient values(101, 'subramani', 6454545445, 45, 'male');
+     insert into patient values(102, 'thithya', 4879895525, 89, 'female');
+     insert into patient values(103, 'diva', 9856324896, 28, 'male');
+     insert into patient values(104, 'saminathan', 986534897, 52, 'male');
+     insert into patient values(105, 'hari', 4588944485, 16, 'male');
+
+
+
+                       ---- CREATEING THE TABLE FOR BILLING_DETAILS
+                
+create table billing_details(
+     bill_id number(5),
+     admission_no number(15),
+     consulting_doctor varchar2(20),
+     tot_bill VARCHAR2(10),
+     bill_gst number(8),
+     balance_amount number(15),
+     admission_date date,
+     constraint hospital_name foreign key(bill_id) references patient(pat_id)
+);
+
+             drop table billing_detals
+
+              select * from patient;
+              select * from billing_details;
+
+insert into billing_details values('101','111035','DR.vaithiyaligam','RS.36000','4000','00',
+                                                        to_date('25092024','ddmmyyyy'));
+                                                        
+insert into billing_details values(102, '76761766', 'DR.SUNTHRAVADIVU', 'RS.45030', '6000', '1000',
+                                                        to_date('13-07-2000','dd-mm-yyyy'));
+                                                        
+insert into billing_details values(103, '76552997, 'DR.ragunathan', 'RS.79323', '7000', '5000',
+                                                        to_date('03-08-2002','dd-mm-yyyy'));
+                                                        
+insert into billing_details values(104, '5485454', 'DR.vinoth kumar', 'RS.30000', '2500', '00',
+                                                        to_date('28-03-2005','dd-mm-yyyy'));
+                                                        
+insert into billing_details values(105, '478535201', 'DR.sundhur', 'RS.5000', '300', '00',
+                                                        to_date('02-10-2001','dd-mm-yyyy'));
+
+
+ 
+                          --- CREATEING THE TABLE FOR STOCK_DETAILS
+
+
+ create table stock_details(
+    stock_id varchar(8) primary key,
+    stock_available varchar(20) not null,
+    quantity number(5) not null,
+    manufacturing_date date not null,
+    expiry_date date not null,
+    check(manufacturing_date < expiry_date)
+ );
+ 
+ 
+    drop table stock_details
+    
+    
+insert into stock_details values('TB2675', 'glucose', 12, to_date('23072024','ddmmyyyy'), 
+                                                                       to_date('28112024','ddmmyyyy'));
+
+insert into stock_details values('TB8786', 'amoxicillin', '23', to_date('19052024','ddmmyyyy'),
+                                                                       to_date('25122024','ddmmyyyy'));
+
+
+insert into stock_details values('TB63287', 'vomitstop', '56', to_date('02032024','ddmmyyyy'), 
+                                                                    to_date('01062024','ddmmyyyy'));
+
+
+insert into stock_details values('TB7686', 'ciplo', '88', to_date('05072024','ddmmyyyy'),                                        
+                                                             to_date('07012025','ddmmyyyy'));
+
+
+insert into stock_details values('TB7788', 'dolo650', '90', to_date('03082024','ddmmyyyy'), 
+                                                                to_date('04032025','ddmmyyyy'));
+                                                                
+                                                                
+insert into stock_details values('TB7748', 'nocold', '78', to_date('08042024','ddmmyyyy'), 
+                                                             to_date('25092025','ddmmyyyy'));                                                                
+
+
+
+                         ---  CREATEING THE TABLE FOR EXPENSE_DETAILS
+
+
+create table expense_details(
+     expense_id varchar2(8) primary key,
+     expense_product varchar2(20) not null,
+     expense_quantity varchar2(20) not null,
+     expense_amount varchar2(10) not null,
+     expense_date date not null,
+     constraint fk_to_purchase FOREIGN KEY(expense_id) references stock_details(stock_id)
+   );
+
+              drop table expense_details
+
+                   select * from expense_id;
+                   select * from stock_id;
+                   
+insert into expense_details values('TB2675','paracetamol','56 BOX','RS.89900',
+                                                          to_date('23092024','ddmmyyyy'));
+                                                          
+INSERT into expense_details values('TB8786', 'iron', '67 box', 'RS.787383',
+                                                          to_date('12052024','ddmmyyyy'));
+                                                          
+insert into expense_details values('TB63287', 'vitamin c', '34', 'RS.676870', 
+                                                          to_date('12032025','ddmmyyyy'));
+                                                          
+insert into expense_details values('TB7686', 'cof syrup', '19 box', 'RS.789333', 
+                                                          to_date('17072024','ddmmyyyy'));
+                                                          
+insert into expense_details values('TB7748', 'eye drops', '106 box', 'RS.150000', 
+                                                          to_date('12062025','ddmmyyyy'));    
+    
+    
+    
+                             ----  CREATEING THE TABLE FOR LEAVE_INFO
+
+    
+    
+create table leave_info(
+    lev_info_id number(5) primary key,
+    tot_lev number(10) not null,
+    lev_taken number(10) not null,
+    late_permission number(20) not null,
+    doj date not null,
+    check(tot_lev > lev_taken and late_permission < 30),
+    constraint leave_details FOREIGN KEY(lev_info_id) references employee(empi_id)
+  );
+  
+ 
+                     drop table leave_info
+                     
+                    select * from employee;
+                    select * from leave_info;
+  
+  insert into leave_info values(1001, '90', '50', '10', to_date('09061998','ddmmyyyy'));
+  insert into leave_info values(1002, '90', '45', '3', to_date('11052003','ddmmyyyy'));
+  insert into leave_info values(1003, '90', '60', '7', to_date('25091987','ddmmyyyy'));
+  insert into leave_info values(1004, '90', '79', '13', to_date('13112022','ddmmyyyy'));
+  insert into leave_info values(1005, '90', '55', '20', to_date('12032007','ddmmyyyy'));
+  insert into leave_info values(1006, '90', '23', '30', to_date('06062009','ddmmyyyy'));
+  
+  
+  
+                           -----  CREATEING THE TABLE FOR PAYROLL_INFO
+
+  
+  
+  create table payroll_info(
+      empi_id number(5) primary key,
+      payment_id varchar(20),
+      basic_salary varchar(8) not null,
+      deductions varchar(10) not null,
+      medical_allowances varchar(10) not null,
+      bonus number(8) not null,
+     check(basic_salary >= bonus and medical_allowances < bonus),
+     constraint pay_details FOREIGN KEY(empi_id) references employee(empi_id)
+  );
+ 
+              drop table payroll_info
+
+              select * from employee;
+              select * from payroll_info;
+ 
+ 
+ insert into payroll_info values(1001, 'SDF67655756', '35000', '3000', '1100', '20000');
+ insert into payroll_info values(1002, 'ETY48921413', '67000', '5000', '3000', '50000');
+ INSERT into payroll_info values(1003, 'FYG14893253', '20000', '1000', '900', '10000');
+ insert into payroll_info values(1004, 'WED15987634', '70000', '6000', '3000', '60000');
+ insert into payroll_info values(1005, 'BUY47598732', '60000', '2000', '1500', '40000');
+ insert into payroll_info values(1006, 'VYR452871340', '900000', '10000', '5000', '70000');
+  
