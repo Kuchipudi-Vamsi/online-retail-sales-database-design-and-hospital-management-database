@@ -1,4 +1,4 @@
-#1.Online Retail Sales Database Design (SQL Internship Project):
+#1. Online Retail Sales Database Design (SQL Internship Project):
 🚀 Project Overview
 This project involves designing and implementing a Retail Sales Database for an e-commerce platform. It includes schema design, ER modeling, sample data insertion, and analytical SQL queries. The project simulates a basic online order management system, covering Customers, Products, Orders, Payments, and Order Items.
 
