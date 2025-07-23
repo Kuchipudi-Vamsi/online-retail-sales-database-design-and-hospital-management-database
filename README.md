@@ -1,4 +1,4 @@
-# Online Retail Sales Database Design (SQL Internship Project):
+#1.Online Retail Sales Database Design (SQL Internship Project):
 🚀 Project Overview
 This project involves designing and implementing a Retail Sales Database for an e-commerce platform. It includes schema design, ER modeling, sample data insertion, and analytical SQL queries. The project simulates a basic online order management system, covering Customers, Products, Orders, Payments, and Order Items.
 
@@ -69,7 +69,7 @@ Sai Tharun M B.Tech – Computer Science & Engineering GitHub • Portfolio • 
 This project is part of a learning internship. You’re free to explore, fork, and learn.
 
 
-#Hospital-management-system:
+#2.Hospital-management-system
 
 Project Overview Introduction This Hospital Management System is developed using Oracle SQL Developer to efficiently manage hospital operations, including:
 
