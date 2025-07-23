@@ -69,7 +69,7 @@ Sai Tharun M B.Tech – Computer Science & Engineering GitHub • Portfolio • 
 This project is part of a learning internship. You’re free to explore, fork, and learn.
 
 
-#2.Hospital-management-system
+# Hospital-management-system
 
 Project Overview Introduction This Hospital Management System is developed using Oracle SQL Developer to efficiently manage hospital operations, including:
 
